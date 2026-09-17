@@ -7,7 +7,7 @@ headerfoggydew = \header {
     title = "The Foggy Dew"
     subtitle = ""
     composer = "Irish trad."
-    arranger = ""
+    arranger = "The Chieftains / Sinéad O'Connor"
     meter = ""
     tagline = ""
 }
@@ -35,7 +35,23 @@ tunefoggydew = \relative c'' {
   
 }
 
-chordsfoggydew = \chordmode {
+%these chords aren't tested/correct!
+chordsfoggydew = \transpose b e {
+  \chordmode {
+
+    r4
+    \repeat volta 2 {
+      b1:m | b1:m | b2:m e2:m |
+    }
+    \alternative {
+      { b1:m }
+      { b1:m }
+    }
+
+    d1 | e2:m d2 | b1:m | b1:m |
+    b1:m | e1:m | b2:m e2:m | b1:m |
+
+  }
 }
 
 \score {
