@@ -12,10 +12,14 @@ headerbutterfly = % \header {
   tagline = ""
 }
 
-tunebutterfly = \relative c'' {
+keytimetempo = {
   \key e \minor
   \time 9/8
   \tempo "slip jig" %4. = 75-130
+}
+
+tunebutterfly = \relative c'' {
+  \keytimetempo
   
   % A section
   \repeat volta 2 {

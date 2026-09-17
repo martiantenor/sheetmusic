@@ -12,10 +12,14 @@ headermorrisons = \header {
   tagline = ""
 }
 
-tunemorrisons = \relative c' {
+keytimetempo = {
   \key e \dorian
   \time 6/8
   \tempo "double jig" 4.=75-130
+}
+
+tunemorrisons = \relative c' {
+  \keytimetempo
 
   % A section
   \repeat volta 2 {

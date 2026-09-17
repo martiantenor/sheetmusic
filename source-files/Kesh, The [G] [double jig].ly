@@ -12,10 +12,14 @@ headerkesh = \header {
   tagline = ""
 }
 
-tunekesh = \relative c'' {
+keytimetempo = {
   \key g \major
   \time 6/8
   \tempo "double jig" 4.=75-130
+}
+
+tunekesh = \relative c'' {
+  \keytimetempo
   
   % A section
   \repeat volta 2 {

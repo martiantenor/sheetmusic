@@ -12,10 +12,14 @@ headerfoggydew = \header {
     tagline = ""
 }
 
-tunefoggydew = \relative c'' {
+keytimetempo = {
   \key e \minor
   \time 4/4
   \tempo "march" 4 = 80
+}
+
+tunefoggydew = \relative c'' {
+  \keytimetempo
   
   \partial 4 b8 d8 |
   \repeat volta 2 {
