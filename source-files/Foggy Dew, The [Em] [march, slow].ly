@@ -7,6 +7,7 @@ headerfoggydew = \header {
     title = "The Foggy Dew"
     subtitle = ""
     composer = "Irish trad."
+    arranger = ""
     meter = ""
     tagline = ""
 }

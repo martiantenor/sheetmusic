@@ -33,7 +33,6 @@ melody = \relative c'' {
   g8 e e d16( e) | g8 g a g16( a) | b8 e d16( b) a( b) | g8 e e4~ | e2 |
 }
 
-
 verseOne = \lyricmode {
   Of all the mon -- ey __ e'er I had
   I __ spent it in __ good __ com -- pa -- ny __
@@ -67,8 +66,6 @@ verseThree = \lyricmode {
   Good __ night and joy __ be __ with you all __
 }
   
-
-
 \score {
   \header {
     \headerpartingglass
@@ -94,4 +91,29 @@ verseThree = \lyricmode {
     >>
   >>
   \layout { }
+}
+
+\score {
+  <<
+    %{
+    \new ChordNames {
+      \set chordChanges = ##t
+      \set midiInstrument = #"acoustic guitar (steel)"
+        \unfoldRepeats {
+          \cheatsheet
+        }
+    }
+    %}
+    \new Staff <<
+      \set Staff.midiInstrument = #"violin"
+      \new Voice {
+        \unfoldRepeats \articulate {
+          \melody
+        }
+      }
+    >>
+  >>
+  \midi {
+    \tempo 4. = 120
+  }
 }

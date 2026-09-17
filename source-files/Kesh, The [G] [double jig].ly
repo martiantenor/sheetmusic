@@ -3,8 +3,8 @@
 \version "2.24.0"
 \include #style-sheet
 
-headermorrisons = \header {
-  title = "Morrison's"
+headerkesh = \header {
+  title = "The Kesh Jig"
   subtitle = ""
   composer = "Irish trad."
   arranger = ""
@@ -12,46 +12,36 @@ headermorrisons = \header {
   tagline = ""
 }
 
-tunemorrisons = \relative c' {
-  \key e \dorian
+tunekesh = \relative c'' {
+  \key g \major
   \time 6/8
   \tempo "double jig" 4.=75-130
-
+  
   % A section
   \repeat volta 2 {
-    e4. b'4. | e,8 b' e, a fs d | e8 d e b'4. | d8 cs b a fs d |
-    e4. b'4. | e,8 b' e, a fs d | g4. fs8 g a | d a g fs e d |
+    g4. g8 a b | a4. a8 b d | e d d g d d | e d b d b a |
+    g a g g a b | a b a a b d | e d d g d d | b a fs g4. |
   }
 
   %B section
-  b'8 e e fs e e | a e e fs e e | b e e fs e e | a4 g8 fs e d |
-  b8 e e fs e e | a e e fs e e | g fs e d4 a8 | b a g fs g a |
-  b8 e e fs e e | a e e fs e e | b e e fs e e | fs a fs d e fs |
-  g4. g8 fs e | d e fs g4 d8 | e d cs d4 a8 | b a g fs e d |
-
-}
-
-chordsmorrisons = \chordmode {
-  % A section
   \repeat volta 2 {
-    e2.:m | e4.:m d4. | e2.:m | g2. | e2.:m | e4.:m d4. | g2. | d2. |
+    b4 b8 d4 d8 | e g e d b a | b4 b8 d b g | a b a a g a |
+    b a b d cs d | e g e d b d | g fs g a g a | b g g g4. |
   }
   
-  % B section
-  e2.:m | e2.:m | e2.:m | d2. |
-  e2.:m | e2.:m | g4. d4. | e4.:m d4. |
-  e2.:m | e2.:m | e2.:m | d2. |
-  g2. | d4. g4. | e4.:m d4. | e4.:m
+}
+
+chordskesh = \chordmode {
 }
 
 \score {
   \header {
-    \headermorrisons
+    \headerkesh
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsmorrisons
+      \chordskesh
     }
     %{
     \new FretBoards {
@@ -63,7 +53,7 @@ chordsmorrisons = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tunemorrisons
+        \tunekesh
       }
     >>
   >>
@@ -85,7 +75,7 @@ chordsmorrisons = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \tunemorrisons
+          \tunekesh
         }
       }
     >>
