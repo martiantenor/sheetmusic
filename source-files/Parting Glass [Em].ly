@@ -3,7 +3,7 @@
 \version "2.24.0"
 \include #style-sheet
 
-thisheader = \header {
+headerpartingglass = \header {
   title = "The Parting Glass"
   subtitle = ""
   composer = "Scottish trad."
@@ -71,7 +71,7 @@ verseThree = \lyricmode {
 
 \score {
   \header {
-    \thisheader
+    \headerpartingglass
   }
   <<
     \new Staff

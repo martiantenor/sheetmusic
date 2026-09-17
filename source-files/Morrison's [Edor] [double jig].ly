@@ -3,7 +3,7 @@
 \version "2.24.0"
 \include #style-sheet
 
-thisheader = \header {
+headermorrisons = \header {
   title = "Morrison's"
   subtitle = ""
   composer = "Irish trad."
@@ -12,7 +12,7 @@ thisheader = \header {
   tagline = ""
 }
 
-thistune = \relative c' {
+tunemorrisons = \relative c' {
   \key e \dorian
   \time 6/8
   \tempo "double jig" 4.=75-130
@@ -32,7 +32,7 @@ thistune = \relative c' {
 
 }
 
-thesechords = \chordmode {
+chordsmorrisons = \chordmode {
   % A section
   \repeat volta 2 {
     e2.:m | e4.:m d4. | e2.:m | g2. | e2.:m | e4.:m d4. | g2. | d2. |
@@ -47,12 +47,12 @@ thesechords = \chordmode {
 
 \score {
   \header {
-    \thisheader
+    \headermorrisons
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \thesechords
+      \chordsmorrisons
     }
     %{
     \new FretBoards {
@@ -64,7 +64,7 @@ thesechords = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \thistune
+        \tunemorrisons
       }
     >>
   >>
@@ -86,7 +86,7 @@ thesechords = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \thistune
+          \tunemorrisons
         }
       }
     >>

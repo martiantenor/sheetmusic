@@ -1,8 +1,17 @@
 #(use-modules (guile-user))
 #(format #t "Using style sheet: ~a\n" style-sheet)
+\version "2.24.0"
 \include #style-sheet
 
-thistune = \relative c'' {
+headerfoggydew = \header {
+    title = "The Foggy Dew"
+    subtitle = ""
+    composer = "Irish trad."
+    meter = ""
+    tagline = ""
+}
+
+tunefoggydew = \relative c'' {
   \key e \minor
   \time 4/4
   \tempo "march" 4 = 80
@@ -21,18 +30,17 @@ thistune = \relative c'' {
   
 }
 
-thesechords = \chordmode {
+chordsfoggydew = \chordmode {
 }
 
 \score {
   \header {
-    title = "The Foggy Dew"
-    composer = "Irish trad."
+    \headerfoggydew
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \thesechords
+      \chordsfoggydew
     }
     %{
     \new FretBoards {
@@ -44,7 +52,7 @@ thesechords = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \thistune
+        \tunefoggydew
       }
     >>
   >>
@@ -66,7 +74,7 @@ thesechords = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \thistune
+          \tunefoggydew
         }
       }
     >>
