@@ -16,7 +16,7 @@ else
 fi
 
 ## Compile loop
-for file in ./source-files/*; do
+for file in ./source-files/*.ly; do
     lilypond -e '(define-public style-sheet "./stylefiles/style.ily")' "$file"
 done &&
 
