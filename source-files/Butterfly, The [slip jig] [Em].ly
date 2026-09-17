@@ -3,7 +3,7 @@
 \version "2.24.0"
 \include #style-sheet
 
-headerbutterfly = % \header {
+headerbutterfly = \header {
   title = "The Butterfly"
   subtitle = ""
   composer = "Irish trad."
