@@ -6,8 +6,7 @@
 headerfoggydew = \header {
     title = "The Foggy Dew"
     subtitle = ""
-    composer = "Irish trad."
-    arranger = "The Chieftains / Sinéad O'Connor"
+    composer = "Irish trad. / The Chieftains / Sinéad O'Connor"
     meter = ""
     tagline = ""
 }
@@ -32,6 +31,8 @@ tunefoggydew = \relative c'' {
   
   g4. b8 d4 c8 b8 | a4 a b g8 a | b4 g'8 fs e d b d | e2. b8 d8 |
   e4 d8 b e4 d8 b | a4 b4 d,4 e8 fs8 | g8 b a g e4 d4 | e2. r4 |
+
+  \fine
   
 }
 

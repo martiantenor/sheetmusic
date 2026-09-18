@@ -33,6 +33,8 @@ tunemorrisons = \relative c' {
   b8 e e fs e e | a e e fs e e | b e e fs e e | fs a fs d e fs |
   g4. g8 fs e | d e fs g4 d8 | e d cs d4 a8 | b a g fs e d |
 
+  \fine
+
 }
 
 chordsmorrisons = \chordmode {

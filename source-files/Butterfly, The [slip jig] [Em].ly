@@ -39,6 +39,8 @@ tunebutterfly = \relative c'' {
     b4. b4 a8 g4 a8 | b4. b8 a b d b a |
     b4. b4 a8 g4 a8 | b4 d8 g4 e8 d b a |
   }
+
+  \fine
 }
 
 chordsbutterfly = \chordmode {

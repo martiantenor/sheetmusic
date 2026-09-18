@@ -32,6 +32,8 @@ tunekesh = \relative c'' {
     b4 b8 d4 d8 | e g e d b a | b4 b8 d b g | a b a a g a |
     b a b d cs d | e g e d b d | g fs g a g a | b g g g4. |
   }
+
+  \fine
   
 }
 

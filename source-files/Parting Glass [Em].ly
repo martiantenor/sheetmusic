@@ -31,6 +31,8 @@ melody = \relative c'' {
   g8 e e d16( e ) | g8 g a g16( a) | b8 e d16( b) a( b) | g8 e e4~ | e4. d'8 |
   d8 e d8. d16 | d8 e d8. \grace b32 b16 | c8 b b16( a) g( a) | b8 d, d4~ | d4. b'16( a) |
   g8 e e d16( e) | g8 g a g16( a) | b8 e d16( b) a( b) | g8 e e4~ | e2 |
+
+  \fine
 }
 
 verseOne = \lyricmode {
