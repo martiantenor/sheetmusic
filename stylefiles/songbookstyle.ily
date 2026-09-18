@@ -3,8 +3,8 @@
 
 \paper {
   #(set-paper-size "letter")
-  %#(set-paper-size "half letter")
   two-sided = ##t
+  inner-margin = 1\in
   indent = 0
   print-all-headers = ##t
 }

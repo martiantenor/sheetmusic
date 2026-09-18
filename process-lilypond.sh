@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Style sheet
-stylesheet = "./stylefiles/style.ily"
+stylesheet="./stylefiles/style.ily"
 
 ## Empty folders if they do exist, create folders if they don't
 if [ -d "midi" ]; then
@@ -17,6 +17,7 @@ fi
 
 ## Compile loop
 for file in ./source-files/*.ly; do
+    #lilypond -e '(define-public style-sheet "./stylefiles/style.ily")' "$file"
     lilypond -e '(define-public style-sheet "./stylefiles/style.ily")' "$file"
 done &&
 
