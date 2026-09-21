@@ -3,4 +3,7 @@
 *.midi
 *.mid
 *.log
+midi/*
+pdf/*
+songbook/*
 *~
