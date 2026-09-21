@@ -15,11 +15,8 @@ else
     mkdir "pdf"
 fi
 
-## Compile loop
-for file in ./source-files/*.ly; do
-    #lilypond -e '(define-public style-sheet "./stylefiles/style.ily")' "$file"
-    lilypond -e '(define-public style-sheet "./stylefiles/style.ily")' "$file"
-done &&
+## Compile all files
+lilypond -e '(define-public style-sheet "./stylefiles/style.ily")' ./source-files/*.ly
 
 ## Cleanup
 mv *.midi ./midi &&
