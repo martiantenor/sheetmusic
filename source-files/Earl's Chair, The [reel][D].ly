@@ -1,15 +1,9 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
-
-\paper {
-  indent = 0
-  print-all-headers = ##t
-}
-
-%{
-\header {
+thisheader = \header {
   title = "The Earl's Chair"
   subtitle = ""
   composer = "Irish trad."
@@ -17,12 +11,15 @@
   meter = ""
   tagline = ""
 }
-%}
 
-tuneearlschair = \relative c'' {
+keytimetempo = {
   \key d \major
   \time 4/4
   \tempo "reel" 4 = 120
+}
+
+thistune = \relative c'' {
+  \keytimetempo
 
   % A section
   \repeat volta 2 {
@@ -44,23 +41,19 @@ tuneearlschair = \relative c'' {
     a8 fs b fs a fs e g | fs e d b a d, fs a |
   }
 
-
 }
 
-
-chordsearlschair = \chordmode {
+thesechords = \chordmode {
 }
 
 \score {
   \header {
-    title = "The Earl's Chair"
-    arranger = "arr. slainte, https://thesession.org/tunes/221"
-    composer = "Irish trad."
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsearlschair
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -72,7 +65,7 @@ chordsearlschair = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tuneearlschair
+        \thistune
       }
     >>
   >>
@@ -94,7 +87,7 @@ chordsearlschair = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \tuneearlschair
+          \thistune
         }
       }
     >>

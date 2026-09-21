@@ -1,33 +1,22 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
-
-\paper {
-  indent = 0
-  print-all-headers = ##t
+thisheader = \header {
+  title = "The Lilting Banshee"
+  arranger = "arr. Jeremy, https://thesession.org/tunes/60"
+  composer = "Irish trad."
 }
 
-colornotes = #(define-scheme-function
-    (color notes)
-    (list? ly:music?)
-    #{
-      \override NoteHead.color = $color
-      \override Stem.color = $color
-      \override Beam.color = $color
-      \override Accidental.color = $color
-      $notes
-      \revert NoteHead.color
-      \revert Stem.color
-      \revert Beam.color
-      \revert Accidental.color
-    #}
-)
-
-tuneliltingbanshee = \relative c' {
+keytimetempo = {
   \key a \dorian
   \time 6/8
   \tempo "double jig" 4.=75-130
+}
+
+thistune = \relative c' {
+  \keytimetempo
   
   % A section
   \repeat volta 2 {
@@ -44,20 +33,17 @@ tuneliltingbanshee = \relative c' {
   
 }
 
-chordsliltingbanshee = \chordmode {
-
+thesechords = \chordmode {
 }
 
 \score {
   \header {
-    title = "The Lilting Banshee"
-    arranger = "arr. Jeremy, https://thesession.org/tunes/60"
-    composer = "Irish trad."
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsliltingbanshee
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -69,7 +55,7 @@ chordsliltingbanshee = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tuneliltingbanshee
+        \thistune
       }
     >>
   >>
@@ -91,7 +77,7 @@ chordsliltingbanshee = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-        \tuneliltingbanshee
+        \thistune
         }
       }
     >>

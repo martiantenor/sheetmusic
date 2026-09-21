@@ -1,33 +1,22 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
-
-\paper {
-  indent = 0
-  print-all-headers = ##t
+thisheader = \header {
+  title = "The Blarney Pilgrim"
+  arranger = "arr. Jeremy, https://thesession.org/tunes/5"
+  composer = "Irish trad."
 }
 
-colornotes = #(define-scheme-function
-    (color notes)
-    (list? ly:music?)
-    #{
-      \override NoteHead.color = $color
-      \override Stem.color = $color
-      \override Beam.color = $color
-      \override Accidental.color = $color
-      $notes
-      \revert NoteHead.color
-      \revert Stem.color
-      \revert Beam.color
-      \revert Accidental.color
-    #}
-)
-
-tuneblarneypilgrim = \relative c' {
+keytimetempo = {
   \key d \major
   \time 6/8
   \tempo "double jig" 4.=75-130
+}
+
+thistune = \relative c' {
+  \keytimetempo
   
   % A section
   \repeat volta 2 {
@@ -50,20 +39,18 @@ tuneblarneypilgrim = \relative c' {
 
 }
 
-chordsblarneypilgrim = \chordmode {
+thesechords = \chordmode {
 
 }
 
 \score {
   \header {
-    title = "The Blarney Pilgrim"
-    arranger = "arr. Jeremy, https://thesession.org/tunes/5"
-    composer = "Irish trad."
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsblarneypilgrim
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -75,7 +62,7 @@ chordsblarneypilgrim = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tuneblarneypilgrim
+        \thistune
       }
     >>
   >>
@@ -97,7 +84,7 @@ chordsblarneypilgrim = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-        \tuneblarneypilgrim
+        \thistune
         }
       }
     >>

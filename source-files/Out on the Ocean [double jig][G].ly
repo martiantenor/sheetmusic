@@ -1,60 +1,43 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
-
-\paper {
-  indent = 0
-  print-all-headers = ##t
+thisheader = \header {
+  title = "Out on the Ocean"
+  arranger = "arr. Jeremy & Rick Dyer, https://thesession.org/tunes/108"
+  composer = "Irish trad."
 }
 
-% \header {
-%   title = "The Kesh"
-%   subtitle = ""
-%   composer = "Irish trad."
-%   arranger = "Jeremy, https://thesession.org/tunes/55"
-%   meter = ""
-%   tagline = ""
-% }
-
-colornotes = #(define-scheme-function
-    (color notes)
-    (list? ly:music?)
-    #{
-      \override NoteHead.color = $color
-      \override Stem.color = $color
-      \override Beam.color = $color
-      \override Accidental.color = $color
-      $notes
-      \revert NoteHead.color
-      \revert Stem.color
-      \revert Beam.color
-      \revert Accidental.color
-    #}
-)
-
-tuneoutontheocean = \relative c'' {
+keytimetempo = {
   \key d \mixolydian
   \time 6/8
   \tempo "double jig" 4.=75-130
+}
+
+thistune = \relative c'' {
+  \keytimetempo
   
   % A section
+  \partial 4
   \repeat volta 2 {
-    \partial 4 { g8 e | }
+    \bar ".|:"
+    g8 e
     d4 b'8 b a g | b d b a4 b8 | g e d g4 a8 | b4 b8 a g e |
     d4 b'8 b a g | b d b a4 b8 | g e d g4 a8 | b8 g e g
   }
  
   % B section
+  \partial 4
   \repeat volta 2 {
-    \partial 4 { b8 d | }
+    b8 d
     e4 e8 e d b | e g e e d b | d4 b8 d e fs | g fs e d b a |
-    g4 a8 b4 d8 | e g e d4 b8 | a g e g4 a8 | b g e g |
+    g4 a8 b4 d8 | e g e d4 b8 | a g e g4 a8 | b g e g
   }
   
 }
 
-chordsoutontheocean = \chordmode {
+thesechords = \chordmode {
   
   % A section
   \repeat volta 2 {
@@ -73,14 +56,12 @@ chordsoutontheocean = \chordmode {
 
 \score {
   \header {
-    title = "Out on the Ocean"
-    arranger = "arr. Jeremy & Rick Dyer, https://thesession.org/tunes/108"
-    composer = "Irish trad."
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsoutontheocean
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -92,7 +73,7 @@ chordsoutontheocean = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tuneoutontheocean
+        \thistune
       }
     >>
   >>
@@ -114,7 +95,7 @@ chordsoutontheocean = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-        \tuneoutontheocean
+        \thistune
         }
       }
     >>

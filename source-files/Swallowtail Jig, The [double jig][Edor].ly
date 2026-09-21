@@ -1,33 +1,22 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
-
-\paper {
-  indent = 0
-  print-all-headers = ##t
+thisheader = \header {
+  title = "The Swallowtail"
+  arranger = "arr. fidicien, https://thesession.org/tunes/106"
+  composer = "Irish trad. / New England"
 }
 
-colornotes = #(define-scheme-function
-    (color notes)
-    (list? ly:music?)
-    #{
-      \override NoteHead.color = $color
-      \override Stem.color = $color
-      \override Beam.color = $color
-      \override Accidental.color = $color
-      $notes
-      \revert NoteHead.color
-      \revert Stem.color
-      \revert Beam.color
-      \revert Accidental.color
-    #}
-)
-
-tuneswallowtailjigedor = \relative c' {
+keytimetempo = {
   \key e \dorian
   \time 6/8
   \tempo "double jig" 4.=75-130
+}
+
+thistune = \relative c' {
+  \keytimetempo
   
   % A section
   \repeat volta 2 {
@@ -44,20 +33,17 @@ tuneswallowtailjigedor = \relative c' {
   
 }
 
-chordsswallowtailjigedor = \chordmode {
-
+thesechords = \chordmode {
 }
 
 \score {
   \header {
-    title = "The Swallowtail"
-    arranger = "arr. fidicien, https://thesession.org/tunes/106"
-    composer = "Irish trad. / New England"
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsswallowtailjigedor
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -69,7 +55,7 @@ chordsswallowtailjigedor = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tuneswallowtailjigedor
+        \thistune
       }
     >>
   >>
@@ -91,7 +77,7 @@ chordsswallowtailjigedor = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-        \tuneswallowtailjigedor
+        \thistune
         }
       }
     >>

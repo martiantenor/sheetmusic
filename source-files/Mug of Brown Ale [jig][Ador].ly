@@ -1,26 +1,25 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
-
-\paper {
-  indent = 0
-  print-all-headers = ##t
+thisheader = \header {
+  title = "The Mug of Brown Ale"
+  arranger = "arr. gian marco, https://thesession.org/tunes/888"
+  composer = "Irish trad."
+  subtitle = ""
+  meter = ""
+  tagline = ""
 }
 
-% \header {
-%   title = "The Kesh"
-%   subtitle = ""
-%   composer = "Irish trad."
-%   arranger = "Jeremy, https://thesession.org/tunes/55"
-%   meter = ""
-%   tagline = ""
-% }
-
-tunemugofbrownale = \relative c'' {
+keytimetempo = {
   \key a \dorian
   \time 6/8
   \tempo "double jig" 4.=75-130
+}
+
+thistune = \relative c'' {
+  \keytimetempo
   
   \partial 4 g'8 fs
   
@@ -40,19 +39,17 @@ tunemugofbrownale = \relative c'' {
   
 }
 
-chordsmugofbrownale = \chordmode {
+thesechords = \chordmode {
 }
 
 \score {
   \header {
-    title = "The Mug of Brown Ale"
-    arranger = "arr. gian marco, https://thesession.org/tunes/888"
-    composer = "Irish trad."
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsmugofbrownale
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -64,7 +61,7 @@ chordsmugofbrownale = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tunemugofbrownale
+        \thistune
       }
     >>
   >>
@@ -86,7 +83,7 @@ chordsmugofbrownale = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \tunemugofbrownale
+          \thistune
         }
       }
     >>

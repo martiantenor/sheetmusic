@@ -1,26 +1,25 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
-
-\paper {
-  indent = 0
-  print-all-headers = ##t
+thisheader = \header {
+  title = "Brian Boru's March"
+  subtitle = ""
+  composer = "Irish trad."
+  arranger = "www.flutetunes.com"
+  meter = ""
+  tagline = ""
 }
 
-% \header {
-%   title = "Brian Boru's March"
-%   subtitle = ""
-%   composer = "Irish trad."
-%   arranger = "www.flutetunes.com"
-%   meter = ""
-%   tagline = ""
-% }
-
-tunebrianboru = \relative c'' {
+keytimetempo = {
   \key a \minor
   \time 6/8
   \tempo "jig" 4. = 75-130
+}
+
+thistune = \relative c'' {
+  \keytimetempo
 
   % A section
   \partial 8
@@ -46,19 +45,17 @@ tunebrianboru = \relative c'' {
 
 }
 
-chordsbrianboru = \chordmode {
+thesechords = \chordmode {
 }
 
 \score {
   \header {
-    title = "Brian Boru's March"
-    composer = "Irish trad."
-    arranger = "www.flutetunes.com"
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsbrianboru
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -70,7 +67,7 @@ chordsbrianboru = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tunebrianboru
+        \thistune
       }
     >>
   >>
@@ -92,7 +89,7 @@ chordsbrianboru = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \tunebrianboru
+          \thistune
         }
       }
     >>
