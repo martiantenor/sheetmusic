@@ -3,7 +3,7 @@
 \version "2.24.0"
 \include #style-sheet
 
-headerpartingglass = \header {
+thisheader = \header {
   title = "The Parting Glass"
   subtitle = ""
   composer = "Scottish trad."
@@ -16,12 +16,6 @@ keytimetempo = {
   \tempo "lento" 4=40
 }
 
-%{
-chordNames = \chordmode {
-  \global
-}
-%}
-
 melody = \relative c'' {
   \keytimetempo
   \partial 8 {
@@ -33,6 +27,9 @@ melody = \relative c'' {
   g8 e e d16( e) | g8 g a g16( a) | b8 e d16( b) a( b) | g8 e e4~ | e2 |
 
   \fine
+}
+
+thesechords = \chordmode {
 }
 
 verseOne = \lyricmode {
@@ -70,7 +67,7 @@ verseThree = \lyricmode {
   
 \score {
   \header {
-    \headerpartingglass
+    \thisheader
   }
   <<
     \new Staff

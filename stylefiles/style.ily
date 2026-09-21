@@ -1,5 +1,5 @@
-\language "english" %For note names like "eb" and "ds"
-\include "articulate.ly" %For more musical MIDI output
+\language "english"         %English note names like "eb" and "ds"
+\include "articulate.ly"    %more musical MIDI output
 
 \paper {
   #(set-paper-size "letter")

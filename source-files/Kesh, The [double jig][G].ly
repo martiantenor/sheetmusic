@@ -3,7 +3,7 @@
 \version "2.24.0"
 \include #style-sheet
 
-headerkesh = \header {
+thisheader = \header {
   title = "The Kesh Jig"
   subtitle = ""
   composer = "Irish trad."
@@ -18,7 +18,7 @@ keytimetempo = {
   \tempo "double jig" 4.=75-130
 }
 
-tunekesh = \relative c'' {
+thistune = \relative c'' {
   \keytimetempo
   
   % A section
@@ -37,17 +37,17 @@ tunekesh = \relative c'' {
   
 }
 
-chordskesh = \chordmode {
+thesechords = \chordmode {
 }
 
 \score {
   \header {
-    \headerkesh
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordskesh
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -59,7 +59,7 @@ chordskesh = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tunekesh
+        \thistune
       }
     >>
   >>
@@ -81,7 +81,7 @@ chordskesh = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \tunekesh
+          \thistune
         }
       }
     >>

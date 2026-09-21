@@ -1,4 +1,4 @@
-\version "2.18.2"
+\version "2.24.0"
 
 \language "english"		%For note names like "eb" and "ds"
 \include "articulate.ly"	%For more musical MIDI output
@@ -18,7 +18,7 @@
 % }
 
 colornotes = #(define-scheme-function
-    (parser location color notes)
+    (color notes)
     (list? ly:music?)
     #{
       \override NoteHead.color = $color

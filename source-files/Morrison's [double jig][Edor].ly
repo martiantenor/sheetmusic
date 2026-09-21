@@ -3,7 +3,7 @@
 \version "2.24.0"
 \include #style-sheet
 
-headermorrisons = \header {
+thisheader = \header {
   title = "Morrison's"
   subtitle = ""
   composer = "Irish trad."
@@ -18,7 +18,7 @@ keytimetempo = {
   \tempo "double jig" 4.=75-130
 }
 
-tunemorrisons = \relative c' {
+thistune = \relative c' {
   \keytimetempo
 
   % A section
@@ -37,7 +37,7 @@ tunemorrisons = \relative c' {
 
 }
 
-chordsmorrisons = \chordmode {
+thesechords = \chordmode {
   % A section
   \repeat volta 2 {
     e2.:m | e4.:m d4. | e2.:m | g2. | e2.:m | e4.:m d4. | g2. | d2. |
@@ -52,12 +52,12 @@ chordsmorrisons = \chordmode {
 
 \score {
   \header {
-    \headermorrisons
+    \thisheader
   }
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \chordsmorrisons
+      \thesechords
     }
     %{
     \new FretBoards {
@@ -69,7 +69,7 @@ chordsmorrisons = \chordmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice {
-        \tunemorrisons
+        \thistune
       }
     >>
   >>
@@ -91,7 +91,7 @@ chordsmorrisons = \chordmode {
       \set Staff.midiInstrument = #"violin"
       \new Voice {
         \unfoldRepeats \articulate {
-          \tunemorrisons
+          \thistune
         }
       }
     >>
