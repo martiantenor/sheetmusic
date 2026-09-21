@@ -24,20 +24,21 @@ thistune = \relative c' {
   
   % A section
   \repeat volta 2 {
+    \bar ".|:"
     fs8 d fs fs4 d8 g4 e8 | fs8 d fs fs4 d8 e4 d8 |
-    fs d fs fs4 d8 g4 b8 | a fs d d e fs e4 d8 |
+    fs d fs fs4 d8 g4 b8 | a fs d d e fs e4 d8 | \break
   }
   
   % B section
   \repeat volta 2 {
     b'4. b8 a g fs g a | b4 e,8 e4 fs8 g4 b8 |
-    a b cs d cs b a b cs | d4 d,8 d4 fs8 e4 d8 |
+    a b cs d cs b a b cs | d4 d,8 d4 fs8 e4 d8 | \break
   }
   
   % C section
   \repeat volta 2 {
     fs'8 d fs fs4 d8 g4 e8 | fs8 d fs fs4 d8 e4 d8 |
-    fs8 d fs fs4 d8 g4 b8 | a fs d d e fs e4 d8 |
+    fs8 d fs fs4 d8 g4 b8 | a fs d d e fs e4 d8 | \break
   }
   
   % D section

@@ -23,6 +23,7 @@ thistune = \relative c'' {
   
   % A section
   \repeat volta 2 {
+    \bar ".|:"
     g4. g8 a b | a4. a8 b d | e d d g d d | e d b d b a |
     g a g g a b | a b a a b d | e d d g d d | b a fs g4. |
   }
