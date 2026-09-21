@@ -10,7 +10,7 @@ else
     mkdir "midi"
 fi
 if [ -d "pdf" ]; then
-    rm -rf "midi/*"
+    rm -rf "pdf/*"
 else
     mkdir "pdf"
 fi
