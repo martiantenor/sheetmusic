@@ -15,9 +15,16 @@ else
 fi
 
 ## Build the songbook file from scratch
-echo "\\version \"2.24.0\"" > "$songbookname.ly"
+echo "\\version \"2.24.0\"" > "$songbookname".ly
+songnum=1
 for file in ./source-files/*.ly; do
-    echo "\\include \"$file\"" >> "$songbookname.ly"
+    echo "\\include \"$file\"" >> "$songbookname".ly
+
+    ## Add a page break every 2 songs
+    if (( $songnum % 2 == 0 )); then
+      echo "\\pageBreak" >> "$songbookname".ly
+    fi
+    ((songnum++))
 done
 
 ## Compile the songbook
