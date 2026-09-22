@@ -4,7 +4,7 @@
 \paper {
   #(set-paper-size "letter")
   %#(set-paper-size "half letter")
-  top-margin = 1\in
+  top-margin = 0.5\in
   bottom-margin = 0.5\in
   two-sided = ##t
   indent = 0
