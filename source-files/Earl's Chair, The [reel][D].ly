@@ -16,6 +16,7 @@ keytimetempo = {
   \key d \major
   \time 4/4
   \tempo "reel" 4 = 120
+  \numericTimeSignature %use "4/4" instead of "C"
 }
 
 thistune = \relative c'' {

@@ -56,16 +56,33 @@ thesechords = \transpose b e {
   }
 }
 
-verseone = \lyricmode {
-
+verseOne = \lyricmode {
   As _ down _ the glen one _ Eas -- ter morn to a city _ _ _ fair rode I
   There _ armed _ _ lines of _ mar -- ching men in _ squa _ -- drons _ passed me by
   No pipe did hum, no _ bat -- tle drum did _ sound its _ dread _ ta _ -- too 
   But the An -- gel -- us Bells o'er the Liff -- ey swells rang _ out _ in the fog -- gy dew
-
 }
 
-%Additional verses entered at the bottom of the file
+verseTwo = \lyricmode {
+  Right _ proud -- ly _ high _ in Dub -- lin town hung _ they _ out a flag of war
+  'Twas _ be -- tter to die 'neath that Ir -- ish sky than at Su -- vla _ or Sud -- -El- -- Bar
+  And from the plains of _ Roy -- al Meath strong _ men came _ hurr -- _ y -- ing through
+  While Britt -- an -- ia's _ Huns with their long range guns sailed _ in _ through the fog -- gy dew
+}
+  
+verseThree = \lyricmode {
+  The -- ir bra -- _ vest fell and the re -- quiem bell rang _ mourn _ fu --  _ lly and clear
+  For _ those who _ died that _ Eas -- ter -- tide in the spring _ _ ing of the year
+  The world did gaze with _ deep a -- maze at those fear -- less _ men _ but _ few
+  Who _ bore the _ fight that _ free -- dom's light might _ shine _ through the fog -- gy dew
+}
+  
+verseFour = \lyricmode {
+  And _ back through the glen, I _ rode a -- gain and my heart _ with _ grief was sore
+  For I par -- ted _ then with _ val -- iant men whom I ne -- ver shall _ see n' -- more
+  But to and fro in my dreams I go and I kneel and _ pray _ for _ you
+  For _ slav -- ery _ fled, O _ glor -- ious dead when you fell _ in the fog -- gy dew
+}
 
 \score {
   \header {
@@ -89,33 +106,21 @@ verseone = \lyricmode {
         \thistune
       }
       \new Lyrics \lyricsto "melody" {
-        \verseone
+        \verseOne
+      }
+      \new Lyrics \lyricsto "melody" {
+        \verseTwo
+      }
+      \new Lyrics \lyricsto "melody" {
+        \verseThree
+      }
+      \new Lyrics \lyricsto "melody" {
+        \verseFour
       }
     >>
   >>
   \layout { }
 }
-
-%Additional verses
-\markup \column \string-lines
-  "Right proudly high in Dublin town hung they out a flag of war
-  'Twas better to die 'neath that Irish sky than at Sulva or Sud-El-Bar
-  And from the plains of Royal Meath strong men came hurrying through
-  While Brittania's Huns with their long range guns sailed in through the foggy dew
-  ."
-  
-\markup \column \string-lines
-  "Their bravest fell and the requiem bell rang mournfully and clear
-  For those who died that Eastertide in the springing of the year
-  While the world did gaze with deep amaze at those fearless men but few
-  Who bore the fight that freedom's light might shine through the foggy dew
-  ."
-  
-\markup \column \string-lines
-  "And back through the glen, I rode again and my heart with grief was sore
-  For I parted then with valiant men whom I never shall see n'more
-  But to and fro in my dreams I go and I kneel and pray for you
-  For slavery fled, O glorious dead when you fell in the foggy dew"
 
 \score {
   <<

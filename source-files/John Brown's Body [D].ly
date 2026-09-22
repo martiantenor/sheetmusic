@@ -1,11 +1,47 @@
+#(use-modules (guile-user))
+#(format #t "Using style sheet: ~a\n" style-sheet)
 \version "2.24.0"
+\include #style-sheet
 
-\language "english"		%For note names like "eb" and "ds"
-\include "articulate.ly"	%For more musical MIDI output
+thisheader = \header {
+}
 
-\paper {
-  indent = 0
-  print-all-headers = ##t
+keytimetempo = {
+  \key g \major
+  \time 4/4
+  \tempo \markup {
+    "swung march" (
+    \score {
+      \new RhythmicStaff { \override Stem.length = 5.6
+        \tiny c8.[ c16]
+      }
+      \layout {
+        \context {
+          \RhythmicStaff
+          \remove Clef_engraver
+          \remove Time_signature_engraver
+          \omit StaffSymbol
+          fontSize = 0.0
+        }
+      }
+    }
+    " = "
+    \score {
+      \new RhythmicStaff { 
+        \tiny \tuplet 3/2 {c8~ c c}
+      }
+      \layout {
+        \context {
+          \RhythmicStaff
+          \remove Clef_engraver
+          \remove Time_signature_engraver
+          \omit StaffSymbol
+          fontSize = 0.0
+        }
+      }
+    }
+    )
+  }
 }
 
 #(define-markup-command (ezscore layout props mus) (ly:music?)
@@ -34,51 +70,8 @@
 )
 
 
-
-tunejohnbrownsbody = \relative c' {
-  \key g \major
-  \time 4/4
-%   \tempo \markup {
-%     (
-%     \ezscore ##{ \small c8.[ c16] #}
-%     "= "
-%     )
-%   }
-
-  \tempo \markup {
-    "swung march" (
-    \score {
-      \new RhythmicStaff { \override Stem.length = 5.6
-        \tiny c8.[ c16]
-      }
-      \layout {
-        \context {
-          \RhythmicStaff
-          \remove Clef_engraver
-          \remove Time_signature_engraver
-          \omit StaffSymbol
-          fontSize = 0.0
-
-        }
-      }
-    }
-    " = "
-    \score {
-      \new RhythmicStaff { 
-        \tiny \tuplet 3/2 {c8~ c c}
-      }
-      \layout {
-        \context {
-          \RhythmicStaff
-          \remove Clef_engraver
-          \remove Time_signature_engraver
-          \omit StaffSymbol
-          fontSize = 0.0
-        }
-      }
-    }
-    )
-  }
+thistune = \relative c' {
+  \keytimetempo
 
   % Verse
   \partial 16 d16
@@ -95,7 +88,7 @@ tunejohnbrownsbody = \relative c' {
 
 }
 
-chordsjohnbrownsbody = \chordmode {
+thesechords = \chordmode {
   \partial 16 s16
   g2 g2 | g2:7 g2:7/b |
   c2 c2 | g2 d2:7 |
@@ -126,8 +119,8 @@ lyricsTwo = \lyricmode {
   <<
     \new ChordNames {
       \set chordChanges = ##t
-      \transpose d a \chordsjohnbrownsbody
-      %\chordsjohnbrownsbody
+      \transpose d a \thesechords
+      %\thesechords
     }
     %{
     \new FretBoards {
@@ -139,8 +132,8 @@ lyricsTwo = \lyricmode {
       \clef "treble"
       \accidentalStyle "modern"
       \new Voice = "melody" {
-        \transpose d a {\tunejohnbrownsbody}
-        %\tunejohnbrownsbody
+        \transpose d a {\thistune}
+        %\thistune
       }
 %     \new Lyrics {
 %       \lyricsto "melody" {
@@ -188,8 +181,8 @@ lyricsTwo = \lyricmode {
       \set Staff.midiInstrument = #"voice oohs"
       \new Voice {
         \unfoldRepeats \articulate {
-          %\tunejohnbrownsbody
-          \transpose d a { \tunejohnbrownsbody }
+          %\thistune
+          \transpose d a { \thistune }
         }
       }
     >>
@@ -197,8 +190,8 @@ lyricsTwo = \lyricmode {
       \set Staff.midiInstrument = #"acoustic grand"
       \new Voice {
         \unfoldRepeats \articulate {
-          %\chordsjohnbrownsbody
-          \transpose d a, { \chordsjohnbrownsbody }
+          %\thistune
+          \transpose d a, { \thistune }
         }
       }
     >>
