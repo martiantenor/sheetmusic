@@ -8,7 +8,6 @@
   outer-margin = 0.5\in
   top-margin = 0.5\in
   bottom-margin = 0.5\in
-  indent = 0
   print-all-headers = ##t
   ragged-bottom = ##t
 }

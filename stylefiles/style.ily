@@ -7,7 +7,7 @@
   top-margin = 0.5\in
   bottom-margin = 0.5\in
   two-sided = ##t
-  indent = 0
+  %indent = 0
   print-all-headers = ##t
   ragged-bottom = ##t
 }
