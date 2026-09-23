@@ -23,7 +23,7 @@ keytimetempo = {
 }
 
 melody = \relative c'' {
-  \partial 2 { g g }
+  \partial 2 { g4 g }
   c4 c8 d e c e f | g4 g8 g e4 d8 c |
   d4 d d d | d8 e d b g4 g |
   c8 b c d e4 d8 d | e4 f g4. g8 |
