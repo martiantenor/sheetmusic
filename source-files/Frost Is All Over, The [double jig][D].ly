@@ -7,6 +7,7 @@ thisheader = \header {
   title = "The Frost Is All Over / Kitty Lie Over"
   composer = "Irish trad."
   arranger = "arr. The Chieftains & The Punch Brothers, from album \"Voice of Ages\""
+  %seemingly a variant of https://thesession.org/tunes/948, not https://thesession.org/tunes/448
 }
 
 keytimetempo = {
