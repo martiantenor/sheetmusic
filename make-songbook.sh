@@ -3,6 +3,10 @@
 ## Songbook folder & filename
 songbookname="Songbook"
 
+## Default songs per page
+#songsperpage="1"
+songsperpage="2"
+
 ## Style sheet
 ## TODO: implement this in lilypond command below
 #stylesheet="./stylefiles/songbookstyle.ily"
@@ -21,7 +25,7 @@ for file in ./source-files/*.ly; do
     echo "\\include \"$file\"" >> "$songbookname".ly
 
     ## Add a page break every 2 songs
-    if (( $songnum % 2 == 0 )); then
+    if (( $songnum % $songsperpage == 0 )); then
       echo "\\pageBreak" >> "$songbookname".ly
     fi
     ((songnum++))
