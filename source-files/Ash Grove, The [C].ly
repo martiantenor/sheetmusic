@@ -4,16 +4,16 @@
 \include #style-sheet
 
 thisheader = \header {
-  title = "Simple Gifts"
-  composer = "Shaker trad. / Joseph Brackett (1848)"
-  arranger = "https://en.wikipedia.org/wiki/Simple_Gifts"
+  title = "The Ash Grove"
+  composer = "Welsh trad. / English yrics by John Oxenford"
+  arranger = "https://en.wikipedia.org/wiki/The_Ash_Grove"
   tagline = ""
 }
 
 keytimetempo = {
   \key c \major
-  \time 4/4
-  \tempo "quick dance" 4=100
+  \time 3/4
+  \tempo "brisk" 4=105
   \numericTimeSignature %use "4/4" instead of "C"
 
   %\clef "treble_8"
@@ -23,31 +23,41 @@ keytimetempo = {
 }
 
 melody = \relative c'' {
-  \partial 2 { g4 g }
-  c4 c8 d e c e f | g4 g8 g e4 d8 c |
-  d4 d d d | d8 e d b g4 g |
-  c8 b c d e4 d8 d | e4 f g4. g8 |
-  d4 d8 e d4 c8 c | d4 c8 b c2 | \section \break
-
-  g'2 e4. d8 | e8 f e d c4. d8 |
-  e4 e8 f g4 e | d d8 e d4. g,8 |
-  c2 c4. d8 | e4 e8 f g4 g8 g |
-  d4 d e e8 d | c4 c c2 | \section \break
+  \partial 2 { g }
+  c f a | f8(e) d c | gf e d c b g
+  \fine
 }
 
 thesechords = \chordmode {
 }
 
 thelyrics = \lyricmode {
-  'Tis the gift to be sim -- ple, 'tis the gift to be free
-  'Tis the gift to come down where we ought to be,
-  And when we find our -- selves in the place just right,
-  'Twill be in the val -- ley of love and de -- light.
-
-  When true sim -- pli -- ci -- ty is gained,
-  To bow and to bend we shan't be a -- shamed,
-  To turn, turn will be our de -- light,
-  Till by turn -- ing, turn -- ing, we come 'round right.
+  The ash grove, how graceful, how plainly 'tis speaking;
+The lark through its branches is gazing on me,
+When over its branches the sunlight is breaking,
+A host of kind faces is gazing on me.
+The friends of my childhood again are before me;
+Each step wakes a memory as freely I roam.
+With (soft) whispers laden the leaves rustle o'er me;
+The ash grove, the ash grove alone (again) is my home.
+ 
+Down yonder green valley where streamlets meander,
+When twilight is fading I pensively rove,
+Or at the bright noontide in solitude wander
+Amid the dark shades of the lonely ash grove.
+'Twas there while the blackbird was cheerfully singing
+I first met that dear one, the joy of my heart.
+Around us for gladness the bluebells were ringing,
+But then little thought I how soon we should part.
+ 
+My lips smile no more, my heart loses its lightness;
+No dream of the future my spirit can cheer.
+I only can brood on the past and its brightness;
+The dear ones I long for again gather here.
+From ev'ry dark nook they press forward to meet me;
+I lift up my eyes to the broad leafy dome,
+And others are there, looking downward to greet me;
+The ash grove, the ash grove again is my home.
 }
 
 %tuneflattened = \absolute {
